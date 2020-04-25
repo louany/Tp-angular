@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(70, 70, 70);
+  color: rgb(204, 204, 204);
+}
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  padding: .5rem 15%;
+
+  &.page-item:active {
+    background-color:rgb(204, 204, 204);
+  }
+}

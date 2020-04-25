@@ -1,0 +1,11 @@
+<form (submit)="onSubmit($event)">
+  <input (change)="onChange('name', $event.target.value)" name="name" type="text" placeholder="Nom">
+  <select (change)="onChange('category', $event.target.value)" name="category">
+    <option value="">Catégorie du jeu</option>
+    <option *ngFor="let c of gameCategories" [value]="c.name">{{ c.name }}</option>
+  </select>
+  <input (change)="onChange('editor', $event.target.value)" name="editor" type="text" placeholder="Editeur">
+
+  <input type="reset" value="RAZ" (click)="onReset()">
+  <input type="submit" value="Filter">
+</form>

@@ -1,0 +1,39 @@
+#game-list-result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #b4b4b4;
+  padding: 1rem 1.5rem;
+}
+article {
+  color: #fff;
+  width: auto;
+  margin: 0.6rem;
+  border: 1px solid #333;
+}
+article header,
+article main,
+article footer {
+  padding: 0.5rem;
+}
+article header {
+  display: flex;
+  align-items: center;
+}
+article header .spacer {
+  flex: 1;
+}
+article header + img {
+  width: 100%;
+}
+article:hover {
+  border: 1px solid blue;
+}
+article footer {
+  margin-top: 10px;
+  text-align: center;
+}
+.loader {
+  text-align: center;
+  margin-top: 4rem;
+}

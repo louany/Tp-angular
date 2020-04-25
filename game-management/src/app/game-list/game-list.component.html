@@ -1,0 +1,45 @@
+<h1>Jeux disponibles</h1>
+
+<app-game-list-filter (filter)="onFilter($event)"></app-game-list-filter>
+
+<div>
+  <button (click)="sizeDown()">-</button>
+  <button (click)="sizeUp()">+</button>
+  <button (click)="sizeReset()">100%</button>
+</div>
+
+<ng-template #loading >
+  <p class="loader">
+    Chargement ...
+  </p>
+</ng-template>
+
+<section id="game-list-result" *ngIf="filteredEntities;else loading">
+  <article *ngFor="let item of pageOfItems" [ngStyle]="{'width': width + 'px'}">
+    <header>
+      <img src="http://fakeimg.pl/50" alt="editor">
+      <div>
+        <h1>{{ item.title }}</h1>
+        <p *ngFor="let genre of item.genres">{{ genre.name }}</p>
+      </div>
+      <div class="spacer"></div>
+      <p>{{ item.note }}/10</p>
+    </header>
+
+    <img [src]="item.coverImage" alt="game logo">
+
+    <main>
+      {{ truncate(item.description) }}
+    </main>
+
+    <footer>
+      <app-game-actions
+          (click)="onActionClick($event, item)">
+      </app-game-actions>
+    </footer>
+  </article>
+</section>
+
+<div class="card-footer pb-0 pt-3">
+  <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+</div>

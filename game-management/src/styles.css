@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #464646;
+  color: #ccc;
+}
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 15%;
+}
+.pagination.page-item:active {
+  background-color: #ccc;
+}
