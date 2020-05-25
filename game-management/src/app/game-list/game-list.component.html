@@ -33,9 +33,13 @@
     </main>
 
     <footer>
-      <app-game-actions
-          (click)="onActionClick($event, item)">
-      </app-game-actions>
+      <a
+        href="#"
+        id="delete"
+        (click)="delete(item.id)"
+        >
+        delete this game
+      </a>
     </footer>
   </article>
 </section>

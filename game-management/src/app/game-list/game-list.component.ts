@@ -1,10 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { GameActions } from './game-actions';
 import { GameApiService } from '../game-api.service';
 import { Game } from 'src/core/models/game';
 import { GameFilter } from 'src/core/models/gameFilter';
+import { containerRefreshStart } from '@angular/core/src/render3';
 
 
 @Component({
@@ -49,11 +49,6 @@ export class GameListComponent implements OnInit {
     this.width = this.defaultSize;
   }
 
-  onActionClick(action: GameActions, game: Game) {
-    alert(`${['delete'][action]} the game nammed ${game.title}`);
-  }
-
-
   onFilter(filterForm: GameFilter) {
     this.filterForm = filterForm;
     this.filter();
@@ -76,6 +71,11 @@ export class GameListComponent implements OnInit {
       this.items = data;
       this.filter();
     });
+  }
+
+  delete(id) {
+    console.log(id);
+    this.gameApiService.deleteGame(id).subscribe();
   }
 
   ngOnInit() {

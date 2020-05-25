@@ -34,6 +34,11 @@ export class GameApiService {
       ]) => this.convert(games, categories))
     )
   }
+  deleteGame (id: number): Observable<{}> {
+    console.log(id)
+    this._keyApi = 'games'
+    return this.HttpCLient.delete(this._urlApi + this._keyApi +`/${id}`);
+  }
 
   private convert(games: GameDto[], categories: Category[]): Game[] {
     return games.map( game => ({
@@ -46,11 +51,12 @@ export class GameApiService {
   }
 
   // public getPublisher(): Observable<Category[]>{
-  //   this._keyApi = 'genres'
+  //   this._keyApi = 'publisher'
   //   return this.HttpCLient.get<Category[]>(this._urlApi + this._keyApi)
   // }
 
   // public getDeveloper(): Observable<Developer[]>{
-    
+    // this._keyApi = 'developers'
+    // return this.HttpCLient.get<Developer[]>(this._urlApi + this._keyApi)
   // }
 }

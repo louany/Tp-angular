@@ -29,7 +29,16 @@ article {
 
   &:hover { border: 1px solid blue; }
 
-  footer { margin-top: 10px; text-align: center; }
+  footer { 
+    #delete {
+      color: #fff;
+      &:hover {
+        color: rgb(219, 219, 219);
+      }
+    }
+    margin-top: 10px; 
+    text-align: center; 
+  }
 }
 .loader {
   text-align: center;
